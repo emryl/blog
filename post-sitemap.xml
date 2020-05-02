@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://blog.rylander.io</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/02/13/esxi-web-spa-client-installupgrade/</loc>
+        <lastmod>2020-05-02T19:44:41.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/02/14/backup-esxi-configuration/</loc>
+        <lastmod>2020-05-02T19:44:41.149Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/</loc>
+        <lastmod>2020-04-28T18:52:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/08/03/setup-cloudflare-access/</loc>
+        <lastmod>2018-08-03T18:55:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/</loc>
+        <lastmod>2018-08-03T18:15:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/</loc>
+        <lastmod>2018-07-28T10:19:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/</loc>
+        <lastmod>2018-07-21T08:05:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/07/20/watching-github-repositories/</loc>
+        <lastmod>2018-07-20T16:14:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/07/20/setup-crashplan-for-small-business-using-docker-on-a-synology-nas/</loc>
+        <lastmod>2018-07-20T16:05:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/01/15/connect-a-esxi-6.5-host-to-a-ups-connected-to-a-synology-nas/</loc>
+        <lastmod>2018-02-04T10:12:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/01/09/install-plex-on-synology-nas-using-docker-compose/</loc>
+        <lastmod>2018-01-09T19:41:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/11/19/install-plex-on-synology-nas-using-docker/</loc>
+        <lastmod>2018-01-09T18:28:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2018/01/07/setup-split-vpn-on-unifi-usg-using-pbr/</loc>
+        <lastmod>2018-01-07T20:28:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/11/stop-and-remove-all-docker-containers/</loc>
+        <lastmod>2017-11-20T15:41:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/11/13/install-nvm-as-a-oh-my-zsh-plugin/</loc>
+        <lastmod>2017-11-13T20:33:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/11/13/configure-zsh-on-macos/</loc>
+        <lastmod>2017-11-13T20:25:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/07/07/setup-l2tp-vpn-on-usg-using-radius-account/</loc>
+        <lastmod>2017-07-07T07:49:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/07/04/resize-photon-root-disk/</loc>
+        <lastmod>2017-07-04T08:18:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/06/29/how-to-migrate-from-an-existing-ubnt-edgerouter-to-a-usg/</loc>
+        <lastmod>2017-06-29T19:12:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/06/16/setup-static-website-hosting-on-amazon-s3-bucket/</loc>
+        <lastmod>2017-06-16T08:41:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/06/15/run-pi-hole-in-a-docker-container/</loc>
+        <lastmod>2017-06-15T18:55:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/06/13/force-removal-of-folders-on-vsan/</loc>
+        <lastmod>2017-06-13T06:08:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/06/09/install-and-configure-bookstack-using-docker-and-ldap/</loc>
+        <lastmod>2017-06-09T16:50:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/05/10/use-synology-nginx-to-proxy-https-request-to-your-unifi-controller/</loc>
+        <lastmod>2017-05-10T15:14:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/</loc>
+        <lastmod>2017-04-22T15:36:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/03/05/send-edgerouter-lite-logs-using-a-custom-port-and-protocol/</loc>
+        <lastmod>2017-03-05T14:19:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/16/setting-up-a-web-proxy-using-squid-and-docker/</loc>
+        <lastmod>2017-02-16T14:29:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/12/deploying-new-photon-vm-from-template-and-docker-up/</loc>
+        <lastmod>2017-02-12T16:26:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/12/increase-photon-system-disk-size/</loc>
+        <lastmod>2017-02-12T10:20:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/12/install-docker-compose-on-photon/</loc>
+        <lastmod>2017-02-12T08:56:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/02/11/open-vscode-from-command-line/</loc>
+        <lastmod>2017-02-11T15:47:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/01/22/apple-tv-4-screen-saver-on-osx/</loc>
+        <lastmod>2017-01-22T19:55:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/01/19/configure-2-node-vsan-on-esxi-free-using-cli-without-vcenter/</loc>
+        <lastmod>2017-01-20T19:19:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/03/05/enable-ups-via-usb-support-on-esxi-5-and-6-and-synology-dsm/</loc>
+        <lastmod>2017-01-15T12:58:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/01/15/restart-the-web-service-on-the-erl/</loc>
+        <lastmod>2017-01-15T10:39:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2017/01/15/mount-esxi-datastore-snapshot-replica-via-cli/</loc>
+        <lastmod>2017-01-15T10:34:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/17/upgrade-esxi-to-6.5-using-offline-bundle/</loc>
+        <lastmod>2016-12-17T21:48:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/14/reset-a-unifi-ap-to-factory-settings-via-ssh/</loc>
+        <lastmod>2016-12-14T17:31:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/14/automate-docker-image-and-container-updates/</loc>
+        <lastmod>2016-12-14T16:19:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/</loc>
+        <lastmod>2016-12-12T19:34:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/12/enable-ssl-on-your-cloudflare-hosted-web-site/</loc>
+        <lastmod>2016-12-05T18:23:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/05/move-https-redirection-to-origin-server-when-using-cloudflare/</loc>
+        <lastmod>2016-12-05T18:23:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/11/27/always-serve-content-over-https-using-cloudflare-cdn/</loc>
+        <lastmod>2016-12-05T18:23:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/05/how-to-cache-all-content-using-cloudflare/</loc>
+        <lastmod>2016-12-05T18:19:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/04/additional-recommended-steps-for-new-ubuntu-14.04-servers-on-digitalocean/</loc>
+        <lastmod>2016-12-04T15:49:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/04/hexo-git-deploy-to-digitalocean-droplet/</loc>
+        <lastmod>2016-12-04T14:56:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/03/31/hello-hexo-later-wordpress/</loc>
+        <lastmod>2016-12-04T12:49:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/03/create-new-ssh-keys-on-mac-osx-sierra/</loc>
+        <lastmod>2016-12-03T22:30:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/12/01/passthrough-usb-keyboard-and-mouse-to-vm-on-esxi/</loc>
+        <lastmod>2016-12-01T17:52:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/11/28/install-crashplan-on-synology/</loc>
+        <lastmod>2016-11-28T20:50:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/07/09/install-and-configure-new-https-cert-on-edgerouterlite/</loc>
+        <lastmod>2016-11-27T21:06:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/11/27/install-sshpass-on-osx/</loc>
+        <lastmod>2016-11-27T19:33:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/03/install-raspbian-on-osx/</loc>
+        <lastmod>2016-11-20T19:52:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/07/delegate-a-sub-domain-of-your-internal-windows-2012r2-domain-to-cloudflare-dns/</loc>
+        <lastmod>2016-04-07T18:48:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/06/index-website-with-google/</loc>
+        <lastmod>2016-04-06T18:46:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/01/deploy-hexo-blog-on-azure-web-app/</loc>
+        <lastmod>2016-04-05T18:59:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/03/02/install-and-configure-new-relic-server-monitoring-on-a-synology/</loc>
+        <lastmod>2016-04-04T20:30:59.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/01/03/enable-boot-logging-for-osx/</loc>
+        <lastmod>2016-04-04T20:27:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/01/setup-a-continous-deployment-build-for-hexo-on-wrecker/</loc>
+        <lastmod>2016-04-04T20:21:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/02/26/install-sub-zero-a-plex-plug-in-based-on-subliminal-to-download-subtitles/</loc>
+        <lastmod>2016-04-04T20:18:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.rylander.io/2016/04/04/hexo-markdown-export-for-clarify/</loc>
+        <lastmod>2016-04-04T19:07:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

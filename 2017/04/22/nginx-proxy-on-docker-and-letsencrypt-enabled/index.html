@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Let&#39;s Encrypt SAN Certificate, Nginx-Proxy and Docker | Lots of emryl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="docker,ssl,photon,letsencrypt" />
+    
+    <meta name="description" content="I’ve used Let’s Encrypt certificates to properly secure my internal services. Previously my setup was a Windows IIS running automatic renewal and sharing all certificate files on a NAS share. This wor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Let&#39;s Encrypt SAN Certificate, Nginx-Proxy and Docker">
+<meta property="og:url" content="https://blog.rylander.io/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/index.html">
+<meta property="og:site_name" content="Lots of emryl">
+<meta property="og:description" content="I’ve used Let’s Encrypt certificates to properly secure my internal services. Previously my setup was a Windows IIS running automatic renewal and sharing all certificate files on a NAS share. This wor">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.rylander.io/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/d93ffbe5-f761-48d5-9634-b375b39589d6.png">
+<meta property="article:published_time" content="2017-04-22T15:36:23.000Z">
+<meta property="article:modified_time" content="2017-04-22T15:36:23.000Z">
+<meta property="article:author" content="emryl">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="ssl">
+<meta property="article:tag" content="photon">
+<meta property="article:tag" content="letsencrypt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rylander.io/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/d93ffbe5-f761-48d5-9634-b375b39589d6.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    <script type="text/javascript">
+        window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);
+        ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"61d58eabe5",applicationID:"102468771",sa:1}
+    </script>        
+
+    
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58006445-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/homelab/index.html">Home Lab</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.rylander.io"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Blog
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-nginx-proxy-on-docker-and-letsencrypt-enabled" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Let&#39;s Encrypt SAN Certificate, Nginx-Proxy and Docker
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/" class="article-date">
+    <time datetime="2017-04-22T15:36:23.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/letsencrypt/" rel="tag">letsencrypt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photon/" rel="tag">photon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/" rel="tag">ssl</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>I’ve used Let’s Encrypt certificates to properly secure my internal services. Previously my setup was a Windows IIS running automatic renewal and sharing all certificate files on a NAS share. This worked really well from a Let’s Encrypt perspective, however since most of my services are not Windows services, the manual pain of converting certificates into the proper formats resulting in expired certificates in several places. Since I use NGINX to proxy some external services, I decided to also implement my Let’s Encrypt process on NGINX.</p>
+<p>There are several solutions available, however I chose Jason Wilder’s setup <a href="https://github.com/jwilder" target="_blank" rel="noopener">https://github.com/jwilder</a>. The base is an nginx-proxy image which can be combined with an autoupdating service Let’s Encrypt as well as dynamic reloading of the configuration.</p>
+<p>nginx-proxy sets up a container running nginx and <a href="https://github.com/jwilder/docker-gen" target="_blank" rel="noopener">docker-gen</a>. docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.</p>
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/d93ffbe5-f761-48d5-9634-b375b39589d6.png" class="">
+
+<h2 id="Let’s-Encrypt-SAN-Certificate"><a href="#Let’s-Encrypt-SAN-Certificate" class="headerlink" title="Let’s Encrypt SAN Certificate"></a>Let’s Encrypt SAN Certificate</h2><p>Previously I was generating unique certificates for each service, however this time I chose to generate SAN (Subject Alternate Name - Multi Domain) certificates for the sake of laziness. I now get one physical certificate which I use on my internal services. SAN certificates are not supported by older browsers but works really well otherwise.</p>
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/let-s-encrypt-san-certificate.png" class="">
+
+<h2 id="nginx-proxy"><a href="#nginx-proxy" class="headerlink" title="nginx-proxy"></a>nginx-proxy</h2><p>All the heavy lifting has been done for use, we just need to follow the guide and configure it.</p>
+<p><a href="https://github.com/jwilder/nginx-proxy" target="_blank" rel="noopener">https://github.com/jwilder/nginx-proxy</a> </p>
+<p><a href="http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/" target="_blank" rel="noopener">http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/</a></p>
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/nginx-proxy.png" class="">
+
+<h2 id="Install-Docker-Compose"><a href="#Install-Docker-Compose" class="headerlink" title="Install Docker-Compose"></a>Install Docker-Compose</h2><p>I chose to use Docker-Compose due to it being easier to keep track of configuration, especially since we are using several interdependant containers.</p>
+<p>I had to download and install docker-compose on my host, since I was running the micro version of VMWare’s Photon image.</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/install-docker-compose.png" class="">
+
+<h2 id="Configure-docker-compose-yml"><a href="#Configure-docker-compose-yml" class="headerlink" title="Configure docker-compose.yml"></a>Configure docker-compose.yml</h2><p>The docker-compose.yml file is versioned in the gist: <a href="https://gist.github.com/mry/b0a2d80e151343fd01061f78fc634f49" target="_blank" rel="noopener">https://gist.github.com/mry/b0a2d80e151343fd01061f78fc634f49</a> </p>
+<p>My current setup ships the logs to a Splunk instance using the HTTP Event Listener and built in Docker logging. This does however bump the docker version requirements to 1.13.0. </p>
+<p>The certificate files will be placed in one folder. Make sure to use your foremost hostname first since it will default to use that name.</p>
+<p>I have a DNS setting to reference my external DNS (hosted by CloudFlare) since the names maps to internal ip:s inside my network. Whenever I add a new internal host, I must update both the internal DNS and the external DNS. I have a simple port-forward rule in my firewall to allow external access on ports 80 and 443 to this instance. Sometime in the future, I will switch to the DNS based domain verification instead so I can close down this opening.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span>  	</span><br><span class="line">	<span class="attr">services:</span>  </span><br><span class="line">	  <span class="attr">nginx-proxy:</span></span><br><span class="line">	    <span class="attr">image:</span> <span class="string">jwilder/nginx-proxy</span></span><br><span class="line">	    <span class="attr">container_name:</span> <span class="string">nginx-proxy</span></span><br><span class="line">	    <span class="attr">logging:</span></span><br><span class="line">	      <span class="attr">driver:</span> <span class="string">splunk</span></span><br><span class="line">	      <span class="attr">options:</span></span><br><span class="line">	        <span class="attr">splunk-url:</span> <span class="string">https://10.0.1.29:8088</span></span><br><span class="line">	        <span class="attr">splunk-token:</span> <span class="string">43D65CB7-4AE8-4ABD-B402-C345781009D4</span></span><br><span class="line">	        <span class="attr">splunk-insecureskipverify:</span> <span class="string">'true'</span></span><br><span class="line">	        <span class="attr">splunk-format:</span> <span class="string">json</span></span><br><span class="line">	        <span class="attr">splunk-verify-connection:</span> <span class="string">'false'</span></span><br><span class="line">	        <span class="attr">splunk-source:</span> <span class="string">letsencrypt-nginx-proxy</span></span><br><span class="line">	    <span class="attr">ports:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">'80:80'</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">'443:443'</span></span><br><span class="line">	    <span class="attr">volumes:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/tmp/docker.sock:ro</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">/etc/nginx/vhost.d</span> <span class="comment"># to update vhost configuration</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">/usr/share/nginx/html</span> <span class="comment"># to write challenge files</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">./certs:/etc/nginx/certs:ro</span> <span class="comment"># update this to change cert location</span></span><br><span class="line">	  <span class="attr">web:</span></span><br><span class="line">	    <span class="attr">image:</span> <span class="string">'nginx'</span></span><br><span class="line">	    <span class="attr">container_name:</span> <span class="string">nginx-web</span></span><br><span class="line">	    <span class="attr">logging:</span></span><br><span class="line">	      <span class="attr">driver:</span> <span class="string">splunk</span></span><br><span class="line">	      <span class="attr">options:</span></span><br><span class="line">	        <span class="attr">splunk-url:</span> <span class="string">https://10.0.1.29:8088</span></span><br><span class="line">	        <span class="attr">splunk-token:</span> <span class="string">43D65CB7-4AE8-4ABD-B402-C345781009D4</span></span><br><span class="line">	        <span class="attr">splunk-insecureskipverify:</span> <span class="string">'true'</span></span><br><span class="line">	        <span class="attr">splunk-format:</span> <span class="string">json</span></span><br><span class="line">	        <span class="attr">splunk-verify-connection:</span> <span class="string">'false'</span></span><br><span class="line">	        <span class="attr">splunk-source:</span> <span class="string">letsencrypt-nginx-web</span></span><br><span class="line">	    <span class="attr">expose:</span> </span><br><span class="line">	      <span class="bullet">-</span> <span class="string">'80'</span></span><br><span class="line">	    <span class="attr">environment:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=rylander.io,humle.rylander.io,dumle.rylander.io,synods01.rylander.io,synods02.rylander.io,fw.rylander.io,humle-ilo.rylander.io,dumle-ilo.rylander.io,proget.rylander.io,unifi.rylander.io,couchpotato.rylander.io,jira.rylander.io,confluence.rylander.io,gitlab.rylander.io,artifactory.rylander.io,splunk.rylander.io</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=80</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">LETSENCRYPT_TEST=false</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">LETSENCRYPT_HOST=rylander.io,humle.rylander.io,dumle.rylander.io,synods01.rylander.io,synods02.rylander.io,fw.rylander.io,humle-ilo.rylander.io,dumle-ilo.rylander.io,proget.rylander.io,unifi.rylander.io,couchpotato.rylander.io,jira.rylander.io,confluence.rylander.io,gitlab.rylander.io,artifactory.rylander.io,splunk.rylander.io</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">LETSENCRYPT_EMAIL=mattias.rylander@gmail.com</span></span><br><span class="line">	  <span class="attr">ssl-companion:</span></span><br><span class="line">	    <span class="attr">image:</span> <span class="string">jrcs/letsencrypt-nginx-proxy-companion</span></span><br><span class="line">	    <span class="attr">container_name:</span> <span class="string">ssl-companion</span></span><br><span class="line">	    <span class="attr">logging:</span></span><br><span class="line">	      <span class="attr">driver:</span> <span class="string">splunk</span></span><br><span class="line">	      <span class="attr">options:</span></span><br><span class="line">	        <span class="attr">splunk-url:</span> <span class="string">https://10.0.1.29:8088</span></span><br><span class="line">	        <span class="attr">splunk-token:</span> <span class="string">43D65CB7-4AE8-4ABD-B402-C345781009D4</span></span><br><span class="line">	        <span class="attr">splunk-insecureskipverify:</span> <span class="string">'true'</span></span><br><span class="line">	        <span class="attr">splunk-format:</span> <span class="string">json</span></span><br><span class="line">	        <span class="attr">splunk-verify-connection:</span> <span class="string">'false'</span></span><br><span class="line">	        <span class="attr">splunk-source:</span> <span class="string">letsencrypt-ssl-companion</span></span><br><span class="line">	    <span class="attr">dns:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">'8.8.8.8'</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">'8.8.4.4'</span></span><br><span class="line">	    <span class="attr">volumes:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock:ro</span> <span class="comment">#companion maps differently</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">./certs:/etc/nginx/certs:rw</span> <span class="comment"># same path as above, now RW</span></span><br><span class="line">	    <span class="attr">volumes_from:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">nginx-proxy</span></span><br><span class="line">	    <span class="attr">depends_on:</span></span><br><span class="line">	      <span class="bullet">-</span> <span class="string">nginx-proxy</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Test-run"><a href="#Test-run" class="headerlink" title="Test run"></a>Test run</h2><p>Test run the docker-compose up command to catch any errors. If all is well just add the -d switch.</p>
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/test-run.png" class="">
+
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/92a80c2d-a892-4700-b201-ec763f6a7f38.png" class="">
+
+<h2 id="Create-a-service"><a href="#Create-a-service" class="headerlink" title="Create a service"></a>Create a service</h2><p>To have the service behave nicely, you can set it up as a service</p>
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/create-a-service.png" class="">
+
+<h2 id="Service-configuration"><a href="#Service-configuration" class="headerlink" title="Service configuration"></a>Service configuration</h2><img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/service-configuration.png" class="">
+
+<h2 id="Enable-the-service"><a href="#Enable-the-service" class="headerlink" title="Enable the service"></a>Enable the service</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable letsencrypt.service</span><br></pre></td></tr></table></figure>
+
+
+<img src="/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/enable-the-service.png" class="">
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://youtube.com" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/mry" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com" target="_blank">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/05/10/use-synology-nginx-to-proxy-https-request-to-your-unifi-controller/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Use Synology Nginx to Proxy HTTPS Request to Your Unifi Controller
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/03/05/send-edgerouter-lite-logs-using-a-custom-port-and-protocol/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Send EdgeRouter Lite Logs Using a Custom Port and Protocol</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/chainoftrust.png)" alt="Add Let&#39;s Encrypt Certificate to vCenter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/" class="title">Add Let&#39;s Encrypt Certificate to vCenter 7</a></p>
+                            <p class="item-date"><time datetime="2020-04-28T18:52:09.000Z" itemprop="datePublished">2020-04-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/03/setup-cloudflare-access/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/08/03/setup-cloudflare-access/238b904a-3b2c-413c-aad4-85a62a7e72b3.png)" alt="Setup Cloudflare Access" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/03/setup-cloudflare-access/" class="title">Setup Cloudflare Access</a></p>
+                            <p class="item-date"><time datetime="2018-08-03T18:55:32.000Z" itemprop="datePublished">2018-08-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/662949ef-1d9a-4b56-bc56-5e26c9936cf1.png)" alt="Using GitHub Pages as Web Host and Cloudflare as CDN" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/" class="title">Using GitHub Pages as Web Host and Cloudflare as CDN</a></p>
+                            <p class="item-date"><time datetime="2018-08-03T18:15:14.000Z" itemprop="datePublished">2018-08-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/76faea3f-0cac-4ad4-be02-62db289a26df.jpg)" alt="Install Windows Admin Center on Windows Server 2016 Core" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/" class="title">Install Windows Admin Center on Windows Server 2016 Core</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T10:19:36.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/b8fd7d88-5173-425f-8a2b-d9e08c03e89d.png)" alt="Local HTTPS Dev Proxy Using Lets Encrypt and Cloudflare" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/" class="title">Local HTTPS Dev Proxy Using Lets Encrypt and Cloudflare</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:05:15.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/azure/" style="font-size: 10px;">azure</a> <a href="/tags/backup/" style="font-size: 10px;">backup</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/cdn/" style="font-size: 13.33px;">cdn</a> <a href="/tags/cloudflare/" style="font-size: 15.56px;">cloudflare</a> <a href="/tags/crashplan/" style="font-size: 12.22px;">crashplan</a> <a href="/tags/dev/" style="font-size: 10px;">dev</a> <a href="/tags/digitalocean/" style="font-size: 11.11px;">digitalocean</a> <a href="/tags/dns/" style="font-size: 12.22px;">dns</a> <a href="/tags/docker/" style="font-size: 18.89px;">docker</a> <a href="/tags/docs/" style="font-size: 10px;">docs</a> <a href="/tags/edgerouter/" style="font-size: 11.11px;">edgerouter</a> <a href="/tags/esxi/" style="font-size: 16.67px;">esxi</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.22px;">github</a> <a href="/tags/hexo/" style="font-size: 15.56px;">hexo</a> <a href="/tags/howto/" style="font-size: 20px;">howto</a> <a href="/tags/letsencrypt/" style="font-size: 12.22px;">letsencrypt</a> <a href="/tags/nas/" style="font-size: 11.11px;">nas</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/oauth/" style="font-size: 10px;">oauth</a> <a href="/tags/osx/" style="font-size: 13.33px;">osx</a> <a href="/tags/photon/" style="font-size: 14.44px;">photon</a> <a href="/tags/plex/" style="font-size: 12.22px;">plex</a> <a href="/tags/rpi/" style="font-size: 10px;">rpi</a> <a href="/tags/s3/" style="font-size: 10px;">s3</a> <a href="/tags/splunk/" style="font-size: 10px;">splunk</a> <a href="/tags/ssh/" style="font-size: 11.11px;">ssh</a> <a href="/tags/ssl/" style="font-size: 14.44px;">ssl</a> <a href="/tags/synology/" style="font-size: 17.78px;">synology</a> <a href="/tags/sysop/" style="font-size: 10px;">sysop</a> <a href="/tags/ubnt/" style="font-size: 15.56px;">ubnt</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/unifi/" style="font-size: 14.44px;">unifi</a> <a href="/tags/usg/" style="font-size: 10px;">usg</a> <a href="/tags/vmware/" style="font-size: 18.89px;">vmware</a> <a href="/tags/vpn/" style="font-size: 11.11px;">vpn</a> <a href="/tags/vsan/" style="font-size: 11.11px;">vsan</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/web/" style="font-size: 11.11px;">web</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/windows-core/" style="font-size: 10px;">windows_core</a> <a href="/tags/zsh/" style="font-size: 11.11px;">zsh</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">Hueman theme</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 emryl</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'emryl';
+    
+    
+    var disqus_url = 'https://blog.rylander.io/2017/04/22/nginx-proxy-on-docker-and-letsencrypt-enabled/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        
+<script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+
+    
+
+    
+        
+<script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+
+        
+<script src="/vendor/scrollLoading/main.js"></script>
+
+    
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

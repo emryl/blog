@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Setup CrashPlan in a Docker Container on Synology | Lots of emryl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="docker,synology,nas,crashplan" />
+    
+    <meta name="description" content="CrashPlan is very popular for backing up NAS solutions. This post outlines the process for installing and configuring CrashPlan on a NAS in a Docker container and controlling it remotely from a CrashP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup CrashPlan in a Docker Container on Synology">
+<meta property="og:url" content="https://blog.rylander.io/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/index.html">
+<meta property="og:site_name" content="Lots of emryl">
+<meta property="og:description" content="CrashPlan is very popular for backing up NAS solutions. This post outlines the process for installing and configuring CrashPlan on a NAS in a Docker container and controlling it remotely from a CrashP">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.rylander.io/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/2b9ad776-21df-41da-992b-d07cb54aea7f.png">
+<meta property="article:published_time" content="2016-12-12T19:34:07.000Z">
+<meta property="article:modified_time" content="2016-12-12T19:34:07.000Z">
+<meta property="article:author" content="emryl">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="synology">
+<meta property="article:tag" content="nas">
+<meta property="article:tag" content="crashplan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rylander.io/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/2b9ad776-21df-41da-992b-d07cb54aea7f.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    <script type="text/javascript">
+        window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);
+        ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"61d58eabe5",applicationID:"102468771",sa:1}
+    </script>        
+
+    
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58006445-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/homelab/index.html">Home Lab</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="https://blog.rylander.io"></form>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Blog
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-setup-crashplan-in-a-docker-container-on-synology" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Setup CrashPlan in a Docker Container on Synology
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/" class="article-date">
+    <time datetime="2016-12-12T19:34:07.000Z" itemprop="datePublished">2016-12-12</time>
+</a>
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crashplan/" rel="tag">crashplan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nas/" rel="tag">nas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/synology/" rel="tag">synology</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>CrashPlan is very popular for backing up NAS solutions. This post outlines the process for installing and configuring CrashPlan on a NAS in a Docker container and controlling it remotely from a CrashPlan Client.</p>
+<p>The whole process is made easy due to the Docker technology however some tinkering is neccessary in order to successfully backup large amount of files and manage CrashPlan remotely. Once it’s setup, it is very easy to backup several TB of data, even from other servers.</p>
+<p>For a guide to install Crashplan as a regular Synology Package, follow <a href="/2016/11/28/install-crashplan-on-synology/">this link</a>.</p>
+<p>I’m totalling around 4TB of data of CrashPlan data.</p>
+<p>My backup scenario is the following:</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CrashPlan service is running on a NAS. </span><br><span class="line">Dropbox - A sync is downloading all my Dropbox content and keeps it instantly synced.</span><br><span class="line">Pictures &amp; Videos - I use PhotoSync to sync mobile photos to the NAS whenever they are in range of the home WIFI.</span><br><span class="line">TimeMachine - I run a TimeMachine service on a separate NAS and mount the folders remotely so they can be backed up by CrashPlan on this NAS.</span><br></pre></td></tr></table></figure>
+
+
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/2b9ad776-21df-41da-992b-d07cb54aea7f.png" class="">
+
+<h2 id="Download-a-crashplan-image-from-the-Docker-Hub"><a href="#Download-a-crashplan-image-from-the-Docker-Hub" class="headerlink" title="Download a crashplan image from the Docker Hub"></a>Download a crashplan image from the Docker Hub</h2><p>I’ve chosen this release: <a href="https://github.com/JrCs/docker-crashplan" target="_blank" rel="noopener">https://github.com/JrCs/docker-crashplan</a></p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/download-a-crashplan-image-from-the-docker-hub.png" class="">
+
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/32833391-77e3-49a6-96dc-27e6b9019cc5.png" class="">
+
+<h2 id="Create-and-start-container"><a href="#Create-and-start-container" class="headerlink" title="Create and start container"></a>Create and start container</h2><p>Since we are mapping volumes below the docker path, we need to do this outside of the Synology UI using SSH.</p>
+<p>Login to your Synology via SSH and sudo up.</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+
+<p>Enter the docker run command</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name jrcs-crashplan \</span><br><span class="line"> --restart=unless-stopped \</span><br><span class="line"> -p 4242:4242 \</span><br><span class="line"> -p 4243:4243 \</span><br><span class="line"> -v /volume4/docker/crashplan/data:/var/crashplan \</span><br><span class="line"> -v /volume2:/volume2 \</span><br><span class="line"> -v /volume3:/volume3 \</span><br><span class="line"> -v /volume4:/volume4 \</span><br><span class="line"> -e TZ=Europe/Stockholm \</span><br><span class="line"> jrcs/crashplan:latest</span><br></pre></td></tr></table></figure>
+
+
+<p>I always prefer to keep the configuration outside of the container to easily be able to upgrade in the future and also to be able to backup easily. Note my local path (/volume4/docker/crashplan/data) where “docker” is a shared folder.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/create-and-start-container.png" class="">
+
+<h2 id="Container-is-visible-in-the-Synology-UI"><a href="#Container-is-visible-in-the-Synology-UI" class="headerlink" title="Container is visible in the Synology UI"></a>Container is visible in the Synology UI</h2><img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/container-is-visible-in-the-synology-ui.png" class="">
+
+<h2 id="Overview-of-container-up-and-running"><a href="#Overview-of-container-up-and-running" class="headerlink" title="Overview of container up and running"></a>Overview of container up and running</h2><img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/overview-of-container-up-and-running.png" class="">
+
+<h2 id="Locate-the-server-ui-info-file"><a href="#Locate-the-server-ui-info-file" class="headerlink" title="Locate the server .ui_info file"></a>Locate the server .ui_info file</h2><p>This configuration file is located in the id/ folder.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/locate-the-server-ui_info-file.png" class="">
+
+<h2 id="Copy-ui-info"><a href="#Copy-ui-info" class="headerlink" title="Copy .ui_info"></a>Copy .ui_info</h2><p>The .ui_info file contains the port number and the key which are needed to be entered into your local .ui_info file.</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat .ui_info</span><br></pre></td></tr></table></figure>
+
+
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/copy-ui_info.png" class="">
+
+<p>The local CrashPlan client read the settings from a local .ui_info file.</p>
+<p>On my mac, it is located at: /Library/Application Support/CrashPlan</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/8f29274a-2683-4832-8574-49d3ca1d1ed6.png" class="">
+
+<h2 id="Local-ui-info-file"><a href="#Local-ui-info-file" class="headerlink" title="Local .ui_info file"></a>Local .ui_info file</h2><p>Paste in the port number and the key. Make sure the ip address points to your docker host.</p>
+<p>Save and quit and then fire up the CrashPlan client.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/local-ui_info-file.png" class="">
+
+<h2 id="Set-Max-Heap-memory"><a href="#Set-Max-Heap-memory" class="headerlink" title="Set Max Heap memory"></a>Set Max Heap memory</h2><p>Depending on how many files you need to scan and backup, you made need to increase the Java Max Heap. If the CrashPlan unexpectedly crashes when running, the Heap is most likely the culprit. You usually notice this when CrashPlan notices you of Backup outages.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/set-max-heap-memory.png" class="">
+
+<p>I’ve set the max heap size to 3GB</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/f9a0e706-1af9-437e-8689-0650401ea41f.png" class="">
+
+<h2 id="Sign-in-to-CrashPlan"><a href="#Sign-in-to-CrashPlan" class="headerlink" title="Sign in to CrashPlan"></a>Sign in to CrashPlan</h2><p>Either create a new account or login using an existing account. You may adopt an earlier backup.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/sign-in-to-crashplan.png" class="">
+
+<h2 id="Adopt-a-previous-computer"><a href="#Adopt-a-previous-computer" class="headerlink" title="Adopt a previous computer"></a>Adopt a previous computer</h2><img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/adopt-a-previous-computer.png" class="">
+
+<h2 id="Select-previous-computer-name"><a href="#Select-previous-computer-name" class="headerlink" title="Select previous computer name"></a>Select previous computer name</h2><img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/select-previous-computer-name.png" class="">
+
+<h2 id="Data-Key-Required"><a href="#Data-Key-Required" class="headerlink" title="Data Key Required"></a>Data Key Required</h2><p>You must enter the correct encryption key. Earlier when entering an invalid key, the whole previous backups were lost, hopefully they have fixed that issue.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/data-key-required.png" class="">
+
+<h2 id="Adoption-Complete"><a href="#Adoption-Complete" class="headerlink" title="Adoption Complete!"></a>Adoption Complete!</h2><p>After successfully having entered the encryption key, Crashplan will start to synchronize with existing backups.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/adoption-complete-.png" class="">
+
+<h2 id="Disable-CrashPlanService-on-OSX"><a href="#Disable-CrashPlanService-on-OSX" class="headerlink" title="Disable CrashPlanService on OSX"></a>Disable CrashPlanService on OSX</h2><p>When you install CrashPlan on your local machine, the setup will install both a client and a server. To disable the unused service on OSX, follow these steps.</p>
+<ol>
+<li>See if the service is running:</li>
+</ol>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep CrashPlanService</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>Disable service:</li>
+</ol>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload /Library/LaunchDaemons/com.crashplan.engine.plist</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>Verify the service is not running anymore:</li>
+</ol>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep CrashPlanService</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>Delete the launch control plist so the CrashPlanService doesn’t reload the next time OSX is restarted:</li>
+</ol>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /Library/LaunchDaemons/com.crashplan.engine.plist</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Backing-up-mounted-remote-folders"><a href="#Backing-up-mounted-remote-folders" class="headerlink" title="Backing up mounted remote folders"></a>Backing up mounted remote folders</h2><p>I have a TimeMachine service running on a second NAS which is used by some of our laptops. In order to include this folder in my CrashPlan backups, I mount the remote folder locally and include it in my CrashPlan schedule.</p>
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/backing-up-mounted-remote-folders.png" class="">
+
+<img src="/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/968201c5-814d-4aaa-9d89-bf85e36680d8.png" class="">
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://youtube.com" target="_blank">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/mry" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com" target="_blank">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/14/automate-docker-image-and-container-updates/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Automate Docker Image and Container Updates Running on Synology
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2016/12/05/move-https-redirection-to-origin-server-when-using-cloudflare/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Move HTTPS Redirection to Origin Server When Using Cloudflare</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/chainoftrust.png)" alt="Add Let&#39;s Encrypt Certificate to vCenter 7" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/28/add-lets-encrypt-certificate-to-vcenter-7/" class="title">Add Let&#39;s Encrypt Certificate to vCenter 7</a></p>
+                            <p class="item-date"><time datetime="2020-04-28T18:52:09.000Z" itemprop="datePublished">2020-04-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/03/setup-cloudflare-access/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/08/03/setup-cloudflare-access/238b904a-3b2c-413c-aad4-85a62a7e72b3.png)" alt="Setup Cloudflare Access" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/03/setup-cloudflare-access/" class="title">Setup Cloudflare Access</a></p>
+                            <p class="item-date"><time datetime="2018-08-03T18:55:32.000Z" itemprop="datePublished">2018-08-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/662949ef-1d9a-4b56-bc56-5e26c9936cf1.png)" alt="Using GitHub Pages as Web Host and Cloudflare as CDN" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/03/using-github-pages-as-web-host-and-cloudflare-as-cdn/" class="title">Using GitHub Pages as Web Host and Cloudflare as CDN</a></p>
+                            <p class="item-date"><time datetime="2018-08-03T18:15:14.000Z" itemprop="datePublished">2018-08-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/76faea3f-0cac-4ad4-be02-62db289a26df.jpg)" alt="Install Windows Admin Center on Windows Server 2016 Core" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/28/install-windows-admin-center-on-windows-server-2016-core/" class="title">Install Windows Admin Center on Windows Server 2016 Core</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T10:19:36.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/b8fd7d88-5173-425f-8a2b-d9e08c03e89d.png)" alt="Local HTTPS Dev Proxy Using Lets Encrypt and Cloudflare" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/21/local-https-dev-proxy-using-lets-encrypt-and-cloudflare/" class="title">Local HTTPS Dev Proxy Using Lets Encrypt and Cloudflare</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:05:15.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/azure/" style="font-size: 10px;">azure</a> <a href="/tags/backup/" style="font-size: 10px;">backup</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/cdn/" style="font-size: 13.33px;">cdn</a> <a href="/tags/cloudflare/" style="font-size: 15.56px;">cloudflare</a> <a href="/tags/crashplan/" style="font-size: 12.22px;">crashplan</a> <a href="/tags/dev/" style="font-size: 10px;">dev</a> <a href="/tags/digitalocean/" style="font-size: 11.11px;">digitalocean</a> <a href="/tags/dns/" style="font-size: 12.22px;">dns</a> <a href="/tags/docker/" style="font-size: 18.89px;">docker</a> <a href="/tags/docs/" style="font-size: 10px;">docs</a> <a href="/tags/edgerouter/" style="font-size: 11.11px;">edgerouter</a> <a href="/tags/esxi/" style="font-size: 16.67px;">esxi</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 12.22px;">github</a> <a href="/tags/hexo/" style="font-size: 15.56px;">hexo</a> <a href="/tags/howto/" style="font-size: 20px;">howto</a> <a href="/tags/letsencrypt/" style="font-size: 12.22px;">letsencrypt</a> <a href="/tags/nas/" style="font-size: 11.11px;">nas</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/oauth/" style="font-size: 10px;">oauth</a> <a href="/tags/osx/" style="font-size: 13.33px;">osx</a> <a href="/tags/photon/" style="font-size: 14.44px;">photon</a> <a href="/tags/plex/" style="font-size: 12.22px;">plex</a> <a href="/tags/rpi/" style="font-size: 10px;">rpi</a> <a href="/tags/s3/" style="font-size: 10px;">s3</a> <a href="/tags/splunk/" style="font-size: 10px;">splunk</a> <a href="/tags/ssh/" style="font-size: 11.11px;">ssh</a> <a href="/tags/ssl/" style="font-size: 14.44px;">ssl</a> <a href="/tags/synology/" style="font-size: 17.78px;">synology</a> <a href="/tags/sysop/" style="font-size: 10px;">sysop</a> <a href="/tags/ubnt/" style="font-size: 15.56px;">ubnt</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/unifi/" style="font-size: 14.44px;">unifi</a> <a href="/tags/usg/" style="font-size: 10px;">usg</a> <a href="/tags/vmware/" style="font-size: 18.89px;">vmware</a> <a href="/tags/vpn/" style="font-size: 11.11px;">vpn</a> <a href="/tags/vsan/" style="font-size: 11.11px;">vsan</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/web/" style="font-size: 11.11px;">web</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/windows-core/" style="font-size: 10px;">windows_core</a> <a href="/tags/zsh/" style="font-size: 11.11px;">zsh</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">Hueman theme</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 emryl</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'emryl';
+    
+    
+    var disqus_url = 'https://blog.rylander.io/2016/12/12/setup-crashplan-in-a-docker-container-on-synology/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        
+<script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+
+    
+
+    
+        
+<script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+
+        
+<script src="/vendor/scrollLoading/main.js"></script>
+
+    
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
